@@ -22,6 +22,7 @@ classifiers = [
 ]
 dependencies = [
     "mpython-core>=25.4rc1",
+    "matlab-runtime", 
 ]
 
 [project.urls]
