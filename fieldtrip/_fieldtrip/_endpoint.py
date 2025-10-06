@@ -12,7 +12,10 @@ class _Endpoint:
         from ._version import __matlab_release__
         from . import _ctf
 
-        matlab_runtime.init(__matlab_release__, install_if_missing=True)
+        try:
+            matlab_runtime.init(__matlab_release__, install_if_missing=True)
+        except ValueError:
+            pass
         self._deployed = matlab_runtime.import_deployed(_ctf)
 
     def __call__(self, *args, **kwargs):
