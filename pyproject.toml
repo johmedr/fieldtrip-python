@@ -40,6 +40,5 @@ respect-gitignore = true
 [tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["F811"]
 
-
 [tool.setuptools.package-data]
-fieldtrip_runtime = [ "fieldtrip/_fieldtrip/_ctf/_ctf.ctf",]
+fieldtrip = [ "_fieldtrip/_ctf/_ctf.ctf"]
