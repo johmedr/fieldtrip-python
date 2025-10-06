@@ -1,0 +1,65 @@
+from fieldtrip._runtime import Runtime
+
+
+def _read_ctf_hc(*args, **kwargs):
+    """
+      READ_CTF_HC reads the MEG headcoil marker positions from an ascii file
+        and computes the coordinate transformation required to get from from
+        dewar to head-coordinates
+
+        the definition of head coordinates is according to CTF standard:
+        - the origin is exactly between LPA and RPA
+        - the positive x-axis goes throught NAS
+        - the positive y-axis goes (approximately) through LPA
+        - the positive z-axis goes up, orthogonal to the x- and y-axes
+
+        hc = read_ctf_hc(filename)
+
+        returns a structure with the following fields
+          hc.dewar.nas    marker positions relative to dewar
+          hc.dewar.lpa
+          hc.dewar.rpa
+          hc.head.nas     marker positions relative to head (measured)
+          hc.head.lpa
+          hc.head.rpa
+          hc.standard.nas marker positions relative to head (expected)
+          hc.standard.lpa
+          hc.standard.rpa
+        and
+          hc.affine       parameter for affine transformation (1x12)
+          hc.homogenous   homogenous transformation matrix (4x4, see warp3d)
+          hc.translation  translation vector (1x3)
+          hc.rotation     rotation matrix (3x3)
+
+        Gradiometer positions can be transformed into head coordinates using the
+        homogeneous transformation matrix, or using the affine parameters and
+        the warp3d function from the WARPING toolbox
+
+
+    This file was automatically converted from Matlab to Python using
+    [MPython](https://github.com/MPython-Package-Factory/mpython), please
+    refer to the original matlab file for the most accurate documentation.
+
+    [Matlab code]( https://github.com/fieldtrip/fieldtrip/blob/master/private/read_ctf_hc.m )
+
+    Copyright (C) 2011-2021, Robert Oostenveld
+    Copyright (C) 2022-, Jan-Mathijs Schoffelen and Robert Oostenveld
+
+    This file is part of FieldTrip, see http://www.fieldtriptoolbox.org
+    for the documentation and details.
+
+    FieldTrip is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    FieldTrip is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with FieldTrip. If not, see <http://www.gnu.org/licenses/>.
+    """
+
+    return Runtime.call("read_ctf_hc", *args, **kwargs)

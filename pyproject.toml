@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fieldtrip-python"
+dynamic = ["version"]
+description = "Python bindings for the FieldTrip software."
+readme = "README.md"
+license = {file = "LICENSE"}
+maintainers = [
+  {name = "Johan Medrano", email = "johan.medrano@ucl.ac.uk"},
+]
+requires-python = ">=3.6,<3.14"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "mpython-core>=25.4rc1",
+]
+
+[project.urls]
+Repository = "https://github.com/fieldtrip/fieldtrip-python"
+
+[tool.setuptools.packages]
+find = {}
+
+[tool.setuptools.dynamic]
+version = {attr = "fieldtrip._version.__version__"}
+
+[tool.ruff]
+exclude = [".mpython", "build", "dist", "__pycache__"]
+respect-gitignore = true
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F811"]
+
+
+[tool.setuptools.package-data]
+fieldtrip_runtime = [ "fieldtrip/_fieldtrip/_ctf/_ctf.ctf",]

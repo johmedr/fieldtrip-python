@@ -1,0 +1,83 @@
+from fieldtrip._runtime import Runtime
+
+
+def ft_preproc_highpassfilter(*args, **kwargs):
+    """
+      FT_PREPROC_HIGHPASSFILTER applies a high-pass filter to the data and thereby removes
+        the low frequency components in the data
+
+        Use as
+          [filt] = ft_preproc_highpassfilter(dat, Fsample, Fhp, N, type, dir, instabilityfix)
+        where
+          dat             data matrix (Nchans X Ntime)
+          Fs              sampling frequency in Hz
+          Fhp             filter frequency in Hz
+          order           optional filter order, default is 6 (but) or dependent on frequency band and data length (fir/firls)
+          type            optional filter type, can be
+                            'but'       Butterworth IIR filter (default)
+                            'firws'     FIR filter with windowed sinc
+                            'fir'       FIR filter using MATLAB fir1 function
+                            'firls'     FIR filter using MATLAB firls function (requires MATLAB Signal Processing Toolbox)
+                            'brickwall' frequency-domain filter using forward and inverse FFT
+          dir             optional filter direction, can be
+                            'onepass'                   forward filter only
+                            'onepass-reverse'           reverse filter only, i.e. backward in time
+                            'onepass-zerophase'         zero-phase forward filter with delay compensation (default for firws, linear-phase symmetric FIR only)
+                            'onepass-reverse-zerophase' zero-phase reverse filter with delay compensation
+                            'onepass-minphase'          minimum-phase converted forward filter (non-linear, only for firws)
+                            'twopass'                   zero-phase forward and reverse filter (default, except for firws)
+                            'twopass-reverse'           zero-phase reverse and forward filter
+                            'twopass-average'           average of the twopass and the twopass-reverse
+          instabilityfix  optional method to deal with filter instabilities
+                            'no'       only detect and give error (default)
+                            'reduce'   reduce the filter order
+                            'split'    split the filter in two lower-order filters, apply sequentially
+          df              optional transition width (firws)
+          wintype         optional window type (firws), can be
+                            'hamming' (default)    maximum passband deviation 0.0022 [0.22%], stopband attenuation -53dB
+                            'hann'                 maximum passband deviation 0.0063 [0.63%], stopband attenuation -44dB
+                            'blackman'             maximum passband deviation 0.0002 [0.02%], stopband attenuation -74dB
+                            'kaiser'
+          dev             optional max passband deviation/stopband attenuation (only for firws with kaiser window, default = 0.001 [0.1%, -60 dB])
+          plotfiltresp    optional, 'yes' or 'no', plot filter responses (only for firws, default = 'no')
+          usefftfilt      optional, 'yes' or 'no', use fftfilt instead of filter (only for firws, default = 'no')
+
+        Note that a one- or two-pass filter has consequences for the strength of the filter,
+        i.e. a two-pass filter with the same filter order will attenuate the signal twice as
+        strong.
+
+        Further note that the filter type 'brickwall' filters in the frequency domain,
+        but may have severe issues. For instance, it has the implication that the time
+        domain signal is periodic. Another issue pertains to that frequencies are
+        not well defined over short time intervals; particularly for low frequencies.
+
+        See also PREPROC
+
+
+    This file was automatically converted from Matlab to Python using
+    [MPython](https://github.com/MPython-Package-Factory/mpython), please
+    refer to the original matlab file for the most accurate documentation.
+
+    [Matlab code]( https://github.com/fieldtrip/fieldtrip/blob/master/preproc/ft_preproc_highpassfilter.m )
+
+    Copyright (C) 2011-2021, Robert Oostenveld
+    Copyright (C) 2022-, Jan-Mathijs Schoffelen and Robert Oostenveld
+
+    This file is part of FieldTrip, see http://www.fieldtriptoolbox.org
+    for the documentation and details.
+
+    FieldTrip is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    FieldTrip is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with FieldTrip. If not, see <http://www.gnu.org/licenses/>.
+    """
+
+    return Runtime.call("ft_preproc_highpassfilter", *args, **kwargs)
