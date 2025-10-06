@@ -42,7 +42,7 @@ By default, `fieldtrip-python` uses R2025b, which is compatible with Python 3.10
 
 1. Install FieldTrip-Python
    ```shell
-   pip install https://github.com/johmedr0/fieldtrip-python/releases/latest/download/fieldtrip_python-20241219b1-py3-none-any.whl
+   pip install https://github.com/johmedr/fieldtrip-python/releases/latest/download/fieldtrip_python-20241219b1-py3-none-any.whl
    ```
 2. Start Python 
    ```shell
@@ -67,7 +67,7 @@ By default, `fieldtrip-python` uses R2025b, which is compatible with Python 3.10
 1. Install the appropriate [MATLAB Runtime](https://uk.mathworks.com/products/compiler/matlab-runtime.html)
 2. Install FieldTrip:
    ```python
-   pip install https://github.com/johmedr0/fieldtrip-python/releases/latest/download/fieldtrip_python-20241219b1-py3-none-any.whl
+   pip install https://github.com/johmedr/fieldtrip-python/releases/latest/download/fieldtrip_python-20241219b1-py3-none-any.whl
    ```
 
 - **Advantages**
@@ -79,7 +79,7 @@ By default, `fieldtrip-python` uses R2025b, which is compatible with Python 3.10
 
 1. Install FieldTrip-Python
    ```shell
-   pip install https://github.com/johmedr0/fieldtrip-python/releases/latest/download/fieldtrip_python-20241219b1-py3-none-any.whl
+   pip install https://github.com/johmedr/fieldtrip-python/releases/latest/download/fieldtrip_python-20241219b1-py3-none-any.whl
    ```
 2. Run the installer
    ```shell
