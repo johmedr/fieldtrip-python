@@ -42,13 +42,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Check out FieldTrip Python
-        uses: actions/checkout@v4
-
-      - name: Install FieldTrip Python
+      - name: Install FieldTrip Python from latest Release
         run: |
-          python -m pip install mpython-core
-          python -m pip install -e .
+          python -m pip install https://github.com/johmedr/fieldtrip-python/releases/latest/download/fieldtrip_python-20241219b1-py3-none-any.whl
 
       # Setup MATLAB and Runtime
       - name: Set up MATLAB
